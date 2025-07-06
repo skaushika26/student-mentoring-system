@@ -1,0 +1,112 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: auto;
+}
+
+.iat-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 30px;
+  background-color: #f5f7fa;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  font-family: 'Segoe UI', sans-serif;
+  .iat-wrapper {
+  max-height: none;
+  overflow-y: auto;
+}
+
+}
+
+.iat-wrapper h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #003366;
+}
+
+.student-block {
+  background-color: #ffffff;
+  padding: 20px;
+  margin-bottom: 30px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.student-block input,
+.student-block select {
+  margin: 5px;
+  padding: 8px 12px;
+  border-radius: 4px;
+  border: 1px solid #aaa;
+  width: calc(33% - 20px);
+}
+
+.semester-block {
+  margin-top: 20px;
+  padding: 15px;
+  background-color: #e8f0fe;
+  border: 1px solid #90caf9;
+  border-radius: 8px;
+}
+
+.semester-block label {
+  font-weight: bold;
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.subject-marks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.subject-marks input {
+  width: 80px;
+  padding: 6px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  text-align: center;
+}
+
+.student-block button,
+.semester-block button,
+.iat-wrapper > button {
+  margin: 8px 5px;
+  padding: 10px 15px;
+  background-color: #0066cc;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.student-block button:hover,
+.semester-block button:hover,
+.iat-wrapper > button:hover {
+  background-color: #004a99;
+}
+
+h4 {
+  margin-top: 10px;
+  color: #003366;
+}
+
+@media (max-width: 768px) {
+  .student-block input,
+  .student-block select {
+    width: 100%;
+  }
+
+  .subject-marks {
+    flex-direction: column;
+  }
+
+  .subject-marks input {
+    width: 100%;
+  }
+}

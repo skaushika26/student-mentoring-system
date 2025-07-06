@@ -1,0 +1,181 @@
+/* Full page background */
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #000000; /* black outer background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* Wrapper to center the card */
+.mentee-page-wrapper {
+  padding: 40px;
+}
+
+/* Black box card */
+.mentee-page {
+  background-color: black;
+  border-radius: 12px;
+  padding: 40px;
+  max-width: 1000px;
+  width: 100%;
+  position: relative;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.6);
+  overflow: hidden;
+  z-index: 2;
+}
+
+/* Animated background balls */
+.mentee-background .ball {
+  position: absolute;
+  border-radius: 50%;
+  background-color: lightgray;
+  opacity: 0.4;
+  animation: floatBall 12s infinite ease-in-out;
+}
+
+.ball1 {
+  width: 70px;
+  height: 70px;
+  top: 10%;
+  left: 15%;
+  animation-delay: 0s;
+}
+
+.ball2 {
+  width: 100px;
+  height: 100px;
+  top: 40%;
+  left: 75%;
+  animation-delay: 2s;
+}
+
+.ball3 {
+  width: 60px;
+  height: 60px;
+  top: 75%;
+  left: 30%;
+  animation-delay: 4s;
+}
+
+@keyframes floatBall {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+  100% { transform: translateY(0px); }
+}
+
+/* Inner white container */
+.mentee-list-container {
+  background: linear-gradient(145deg, #d3d3d3, #e0e0e0);
+  border-radius: 16px;
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
+  padding: 30px;
+  border: 2px solid #1e3a8a;
+  z-index: 2;
+}
+
+/* Heading */
+.mentee-list-container h2 {
+  color: #1e3a8a;
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+/* Search bar */
+.search-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+  gap: 10px;
+}
+
+.search-input {
+  padding: 10px;
+  border: 1px solid #1e3a8a;
+  border-radius: 6px;
+  font-size: 1rem;
+  width: 250px;
+}
+
+.search-button {
+  background-color: #1e3a8a;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.search-button:hover {
+  background-color: #324da2;
+}
+
+/* Table container */
+.table-container {
+  overflow-x: auto;
+  background-color: white;
+  border-radius: 8px;
+  padding: 10px;
+}
+
+/* Table */
+.mentee-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  background-color: white;
+  border: 1px solid #e2e8f0;
+}
+
+.mentee-table th,
+.mentee-table td {
+  padding: 12px 15px;
+  text-align: left;
+  border: 1px solid #e2e8f0;
+  font-size: 1rem;
+}
+
+/* Make text inside TD visible */
+.mentee-table td {
+  color: #1e3a8a; /* dark blue for contrast */
+}
+
+.mentee-table th {
+  background-color: #1e3a8a;
+  color: white;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
+}
+
+.mentee-table tr:nth-child(even) {
+  background-color: #f8fafc;
+}
+
+.mentee-table tr:hover {
+  background-color: #f1f5f9;
+}
+
+/* View button */
+.view-button {
+  background-color: #7c3aed;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.view-button:hover {
+  background-color: #6d28d9;
+  transform: translateY(-1px);
+}

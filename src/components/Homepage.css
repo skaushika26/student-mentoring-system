@@ -1,0 +1,89 @@
+
+/* Full-screen black background */
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: 'Georgia', serif;
+}
+
+.homepage {
+  background-color: black;
+  color: white;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Balls floating */
+.background-animation .ball {
+  position: absolute;
+  border-radius: 50%;
+  background-color: lightgray;
+  opacity: 0.4;
+  animation: floatBall 10s infinite ease-in-out;
+}
+
+.ball1 { width: 80px; height: 80px; top: 20%; left: 10%; animation-delay: 0s; }
+.ball2 { width: 100px; height: 100px; top: 50%; left: 70%; animation-delay: 2s; }
+.ball3 { width: 60px; height: 60px; top: 80%; left: 30%; animation-delay: 4s; }
+
+@keyframes floatBall {
+  0% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-30px) rotate(180deg); }
+  100% { transform: translateY(0) rotate(360deg); }
+}
+
+/* Center content */
+.menu-container {
+  z-index: 2;
+  text-align: center;
+}
+
+/* Buttons */
+.menu-list {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 60px; /* increased from 30px to 60px */
+  align-items: center;
+}
+.menu-list li a {
+  text-decoration: none;
+  background: linear-gradient(145deg, #d3d3d3, #e0e0e0);
+  color: #333;
+  font-weight: bold;
+  padding: 15px 40px;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(200, 200, 200, 0.6);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: moveBox 2s infinite alternate ease-in-out;
+}
+
+.menu-list li a:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.7);
+}
+
+@keyframes moveBox {
+  0% { transform: translateY(0px); }
+  100% { transform: translateY(-10px); }
+}
+
+.welcome-message {
+  margin-top: 30px;
+  font-size: 22px;
+  font-weight: bold;
+}
+.menu-list li a img {
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
+  vertical-align: middle;
+}

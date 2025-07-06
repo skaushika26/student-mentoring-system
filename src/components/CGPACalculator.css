@@ -1,0 +1,51 @@
+.cgpa-container {
+  padding: 30px;
+  background-color: #0b0f19;
+  color: white;
+  min-height: 100vh;
+}
+
+h2 {
+  text-align: center;
+  color: #00ccff;
+  margin-bottom: 20px;
+}
+
+select, input {
+  padding: 6px;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  border: 1px solid #555;
+  background: #111;
+  color: #fff;
+}
+
+.grade-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.grade-row label {
+  width: 250px;
+}
+
+.btn-calculate,
+.btn-download {
+  padding: 10px 20px;
+  margin: 10px 10px 10px 0;
+  background: #00ccff;
+  color: #000;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 0 10px #00ccff88;
+}
+
+.cgpa-result {
+  margin-top: 20px;
+  text-align: center;
+  color: #00ffb3;
+}

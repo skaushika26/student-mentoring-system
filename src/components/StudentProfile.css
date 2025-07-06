@@ -1,0 +1,47 @@
+.profile-container {
+  background-color: #d0ecff;
+  padding: 40px;
+  font-family: Arial, sans-serif;
+  color: #222;
+}
+
+.profile-container h1 {
+  font-size: 36px;
+  font-weight: bold;
+}
+
+.profile-container h2 {
+  font-size: 28px;
+  font-weight: bold;
+  margin-top: 30px;
+}
+
+.profile-container .info {
+  font-size: 18px;
+  margin: 5px 0;
+}
+
+.marks-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  background-color: #c6ffc6;
+  font-size: 16px;
+}
+
+.marks-table th, .marks-table td {
+  border: 1px solid #000;
+  padding: 8px;
+  text-align: center;
+}
+
+.marks-table th {
+  background-color: #82e682;
+  font-weight: bold;
+}
+
+.semester-row th {
+  background-color: #5fd95f;
+  font-size: 18px;
+  color: blue;
+}
