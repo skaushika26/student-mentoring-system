@@ -1,3 +1,5 @@
+// ==== FRONTEND (React) - UploadMarks.jsx ====
+
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
@@ -13,31 +15,32 @@ const UploadMarks = () => {
   const handleUpload = async (e) => {
     e.preventDefault();
 
-    if (!file) {
-      alert('Please select a file');
+    if (!file || !file.name.endsWith('.xlsx')) {
+      alert('Please select a valid .xlsx file');
       return;
     }
 
     const formData = new FormData();
     formData.append('file', file);
 
-    const nameFromFile = file.name.split('-')[0].trim();
-    setStudentName(nameFromFile);
-
     try {
-      // ✅ Corrected upload URL
       const res = await axios.post('http://localhost:5000/api/upload/upload', formData, {
         headers: { 'Content-Type': 'multipart/form-data' },
       });
 
+      const studentNameFromBackend = res.data.name || '';
+      setStudentName(studentNameFromBackend);
       setMessage(res.data.message || 'Upload successful');
       console.log('✅ Upload response:', res.data);
 
-      // Fetch marks after upload
-      const dataRes = await axios.get(`http://localhost:5000/api/marks/${nameFromFile}`);
+      const dataRes = await axios.get(`http://localhost:5000/api/marks/${encodeURIComponent(studentNameFromBackend)}`);
       console.log('📄 Fetched Marks:', dataRes.data);
 
-      // Generate PDF
+      if (!dataRes.data.semesters || dataRes.data.semesters.length === 0) {
+        alert('No marks data found for this student.');
+        return;
+      }
+
       generatePDF(dataRes.data);
     } catch (err) {
       console.error('❌ Upload Error:', err);
@@ -70,8 +73,7 @@ const UploadMarks = () => {
       autoTable(doc, {
         startY: y,
         head: [[
-          'Subject',
-          'UT1', 'A1', 'IA1',
+          'Subject', 'UT1', 'A1', 'IA1',
           'UT2', 'A2', 'IA2',
           'UT3', 'A3', 'IA3',
         ]],
@@ -80,7 +82,9 @@ const UploadMarks = () => {
         theme: 'grid',
       });
 
-      y = doc.previousAutoTable.finalY + 10;
+      if (doc.previousAutoTable) {
+        y = doc.previousAutoTable.finalY + 10;
+      }
     });
 
     doc.save(`${data.name}-IAT-Marks.pdf`);
@@ -98,15 +102,11 @@ const UploadMarks = () => {
           style={{ marginBottom: '10px' }}
         />
         <br />
-        <button type="submit" className="shining-btn">
-          Upload
-        </button>
+        <button type="submit" className="shining-btn">Upload</button>
       </form>
 
       {message && (
-        <p style={{ color: message.toLowerCase().includes('success') ? 'lightgreen' : 'red' }}>
-          {message}
-        </p>
+        <p style={{ color: message.toLowerCase().includes('success') ? 'lightgreen' : 'red' }}>{message}</p>
       )}
 
       {studentName && (
